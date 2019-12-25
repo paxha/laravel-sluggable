@@ -1,0 +1,38 @@
+{
+    "name": "paxha/laravel-slugable",
+    "description": "This package provides a trait that will generate a unique slug when saving any Eloquent model.",
+    "type": "laravel",
+    "license": "MIT",
+    "keywords": [
+        "laravel library",
+        "laravel slug generator"
+    ],
+    "authors": [
+        {
+            "name": "Hassan Raza Pasha",
+            "email": "e.hassanrazapasha@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2"
+    },
+    "require-dev": {
+        "orchestra/testbench-dusk": "^4.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Slugable\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Slugable\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

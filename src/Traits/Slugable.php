@@ -1,0 +1,53 @@
+<?php
+
+namespace Slugable;
+
+use Illuminate\Support\Str;
+
+trait Slugable
+{
+    public static function slugFrom()
+    {
+        return [];
+    }
+
+    public static function slugSaveTo()
+    {
+        return 'slug';
+    }
+
+    public static function separator()
+    {
+        return '-';
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+
+        self::creating(function ($model) {
+            if (!count(self::slugFrom())) {
+                return;
+            }
+
+            $str = null;
+            foreach (self::slugFrom() as $item) {
+                if ($str) {
+                    $str .= ' ';
+                }
+                $str .= $model->{$item};
+            }
+
+            $slug = Str::slug($str, self::separator());
+
+            $latestSlug = self::whereRaw(self::slugSaveTo() . " = '$slug' or " . self::slugSaveTo() . " LIKE '$slug%'")->latest('id')->value(self::slugSaveTo());
+            if ($latestSlug) {
+                $pieces = explode(self::separator(), $latestSlug);
+                $number = intval(end($pieces));
+                $slug .= self::separator() . ($number + 1);
+            }
+
+            $model->{self::slugSaveTo()} = $slug;
+        });
+    }
+}
