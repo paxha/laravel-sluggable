@@ -12,20 +12,20 @@ class SlugableTest extends TestCase
     {
         User::create([
             'first_name' => 'John',
-            'last_name' => 'Doe'
+            'last_name'  => 'Doe',
         ]);
 
         $this->assertDatabaseHas('users', [
-            'slug' => 'john-doe'
+            'slug' => 'john-doe',
         ]);
 
         User::create([
             'first_name' => 'John',
-            'last_name' => 'Doe'
+            'last_name'  => 'Doe',
         ]);
 
         $this->assertDatabaseHas('users', [
-            'slug' => 'john-doe-1'
+            'slug' => 'john-doe-1',
         ]);
 
         $user = new User();
@@ -34,26 +34,26 @@ class SlugableTest extends TestCase
         $user->save();
 
         $this->assertDatabaseHas('users', [
-            'slug' => 'john-doe-2'
+            'slug' => 'john-doe-2',
         ]);
     }
 
     public function testManualSlugable()
     {
         Role::create([
-            'name' => 'Super Admin'
+            'name' => 'Super Admin',
         ]);
 
         $this->assertDatabaseHas('roles', [
-            'role_slug' => 'super_admin'
+            'role_slug' => 'super_admin',
         ]);
 
         Role::create([
-            'name' => 'Super Admin'
+            'name' => 'Super Admin',
         ]);
 
         $this->assertDatabaseHas('roles', [
-            'role_slug' => 'super_admin_1'
+            'role_slug' => 'super_admin_1',
         ]);
 
         $role = new Role();
@@ -61,7 +61,7 @@ class SlugableTest extends TestCase
         $role->save();
 
         $this->assertDatabaseHas('roles', [
-            'role_slug' => 'super_admin_2'
+            'role_slug' => 'super_admin_2',
         ]);
     }
 }
