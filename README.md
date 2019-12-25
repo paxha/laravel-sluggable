@@ -1,6 +1,6 @@
 <p align="center">
 <a href="https://travis-ci.org/paxha/laravel-slugable"><img src="https://img.shields.io/travis/paxha/laravel-slugable/master.svg?style=flat-square" alt="Build Status"></a>
-<a href="https://github.styleci.io/repos/227086797"><img src="https://github.styleci.io/repos/227086797/shield?branch=master" alt="StyleCI"></a>
+<a href="https://github.styleci.io/repos/230079302"><img src="https://github.styleci.io/repos/230079302/shield?branch=master" alt="StyleCI"></a>
 <a href="https://packagist.org/packages/paxha/laravel-slugable"><img src="https://poser.pugx.org/paxha/laravel-slugable/d/total.svg?format=flat-square" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/paxha/laravel-slugable"><img src="https://poser.pugx.org/paxha/laravel-slugable/v/stable.svg?format=flat-square" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/paxha/laravel-slugable"><img src="https://poser.pugx.org/paxha/laravel-slugable/license.svg?format=flat-square" alt="License"></a>
