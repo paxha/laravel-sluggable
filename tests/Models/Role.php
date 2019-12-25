@@ -3,7 +3,7 @@
 namespace Slugable\Tests\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Slugable\Slugable;
+use Slugable\Traits\Slugable;
 
 class Role extends Model
 {
@@ -12,11 +12,6 @@ class Role extends Model
     protected $fillable = [
         'name'
     ];
-
-    public static function slugFrom()
-    {
-        return ['name'];
-    }
 
     public static function slugSaveTo()
     {

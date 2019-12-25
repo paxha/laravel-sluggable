@@ -1,22 +1,22 @@
 <?php
 
-namespace Slugable;
+namespace Slugable\Traits;
 
 use Illuminate\Support\Str;
 
 trait Slugable
 {
-    public static function slugFrom()
+    public static function slugFrom(): array
     {
-        return [];
+        return ['name'];
     }
 
-    public static function slugSaveTo()
+    public static function slugSaveTo(): string
     {
         return 'slug';
     }
 
-    public static function separator()
+    public static function separator(): string
     {
         return '-';
     }

@@ -28,10 +28,10 @@ class SlugableTest extends TestCase
             'slug' => 'john-doe-1'
         ]);
 
-        User::create([
-            'first_name' => 'John',
-            'last_name' => 'Doe'
-        ]);
+        $user = new User();
+        $user->first_name = 'John';
+        $user->last_name = 'Doe';
+        $user->save();
 
         $this->assertDatabaseHas('users', [
             'slug' => 'john-doe-2'
@@ -56,9 +56,9 @@ class SlugableTest extends TestCase
             'role_slug' => 'super_admin_1'
         ]);
 
-        Role::create([
-            'name' => 'Super Admin'
-        ]);
+        $role = new Role();
+        $role->name = 'Super Admin';
+        $role->save();
 
         $this->assertDatabaseHas('roles', [
             'role_slug' => 'super_admin_2'

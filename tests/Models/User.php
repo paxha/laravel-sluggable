@@ -3,7 +3,7 @@
 namespace Slugable\Tests\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Slugable\Slugable;
+use Slugable\Traits\Slugable;
 
 class User extends Model
 {
