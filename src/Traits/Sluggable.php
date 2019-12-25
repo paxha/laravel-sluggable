@@ -1,10 +1,10 @@
 <?php
 
-namespace Slugable\Traits;
+namespace Sluggable\Traits;
 
 use Illuminate\Support\Str;
 
-trait Slugable
+trait Sluggable
 {
     public static function slugFrom(): array
     {

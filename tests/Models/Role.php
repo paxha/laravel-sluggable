@@ -1,13 +1,13 @@
 <?php
 
-namespace Slugable\Tests\Models;
+namespace Sluggable\Tests\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Slugable\Traits\Slugable;
+use Sluggable\Traits\Sluggable;
 
 class Role extends Model
 {
-    use Slugable;
+    use Sluggable;
 
     protected $fillable = [
         'name',

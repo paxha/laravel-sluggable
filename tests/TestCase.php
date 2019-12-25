@@ -1,6 +1,6 @@
 <?php
 
-namespace Slugable\Tests;
+namespace Sluggable\Tests;
 
 class TestCase extends \Orchestra\Testbench\Dusk\TestCase
 {

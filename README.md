@@ -38,7 +38,7 @@ Use the `Slugable` trait in your model to work with slug:
 ```php
 class User extends Model
 {
-    use \Slugable\Traits\Slugable;
+    use \Slugable\Traits\Sluggable;
 }
 ```
 
@@ -53,7 +53,7 @@ You can overriding it as well `slugFrom()`, `slugSaveTo()` and `separator()`:
 ```php
 class User extends Model
 {
-    use \Slugable\Traits\Slugable;
+    use \Slugable\Traits\Sluggable;
 
     public static function slugFrom()
     {
@@ -92,7 +92,7 @@ Schema::create('users', function (Blueprint $table) {
 ```php
 class User extends Model
 {
-    use \Slugable\Traits\Slugable;
+    use \Slugable\Traits\Sluggable;
 
     protected $fillable = [
         'first_name', 'last_name',
@@ -148,7 +148,7 @@ Schema::create('users', function (Blueprint $table) {
 ```php
 class User extends Model
 {
-    use \Slugable\Traits\Slugable;
+    use \Slugable\Traits\Sluggable;
     
     protected $fillable = [
         'name',

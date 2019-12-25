@@ -1,10 +1,10 @@
 <?php
 
-namespace Slugable\Tests\Unit;
+namespace Sluggable\Tests\Unit;
 
-use Slugable\Tests\Models\Role;
-use Slugable\Tests\Models\User;
-use Slugable\Tests\TestCase;
+use Sluggable\Tests\Models\Role;
+use Sluggable\Tests\Models\User;
+use Sluggable\Tests\TestCase;
 
 class SlugableTest extends TestCase
 {
