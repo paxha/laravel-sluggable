@@ -17,4 +17,9 @@ class User extends Model
     {
         return ['first_name', 'last_name'];
     }
+
+    public static function boot()
+    {
+        parent::boot();
+    }
 }

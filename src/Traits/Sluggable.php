@@ -21,10 +21,8 @@ trait Sluggable
         return '-';
     }
 
-    public static function boot()
+    public static function bootSluggable()
     {
-        parent::boot();
-
         self::creating(function ($model) {
             if (!count(self::slugFrom())) {
                 return;
