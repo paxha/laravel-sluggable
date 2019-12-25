@@ -4,6 +4,7 @@
     "type": "laravel",
     "license": "MIT",
     "keywords": [
+        "laravel",
         "laravel package",
         "laravel slug generator",
         "slug generator",
