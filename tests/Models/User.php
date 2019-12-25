@@ -10,7 +10,7 @@ class User extends Model
     use Slugable;
 
     protected $fillable = [
-        'first_name', 'last_name'
+        'first_name', 'last_name',
     ];
 
     public static function slugFrom()

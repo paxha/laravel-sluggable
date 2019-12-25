@@ -10,7 +10,7 @@ class Role extends Model
     use Slugable;
 
     protected $fillable = [
-        'name'
+        'name',
     ];
 
     public static function slugSaveTo()
