@@ -38,11 +38,17 @@ trait Sluggable
 
             $slug = Str::slug($str, self::separator());
 
-            $latestSlug = self::whereRaw(self::slugSaveTo()." = '$slug' or ".self::slugSaveTo()." LIKE '$slug%'")->latest('id')->value(self::slugSaveTo());
+            $slugExists = self::where(self::slugSaveTo(), $slug)->exists();
+
+            $latestSlug = null;
+            if ($slugExists) {
+                $latestSlug = self::whereRaw(self::slugSaveTo() . " LIKE '$slug%'")->latest('id')->value(self::slugSaveTo());
+            }
+
             if ($latestSlug) {
                 $pieces = explode(self::separator(), $latestSlug);
                 $number = intval(end($pieces));
-                $slug .= self::separator().($number + 1);
+                $slug .= self::separator() . ($number + 1);
             }
 
             $model->{self::slugSaveTo()} = $slug;
