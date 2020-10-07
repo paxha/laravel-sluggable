@@ -3,11 +3,12 @@
 namespace Sluggable\Tests\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Sluggable\Traits\Sluggable;
 
 class Role extends Model
 {
-    use Sluggable;
+    use Sluggable, SoftDeletes;
 
     protected $fillable = [
         'name',

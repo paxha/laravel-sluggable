@@ -12,62 +12,62 @@ class SluggableTest extends TestCase
     {
         User::create([
             'first_name' => 'John',
-            'last_name'  => 'Doe',
+            'last_name' => 'Doe',
         ]);
 
         User::create([
             'first_name' => 'John',
-            'last_name'  => 'Doe',
+            'last_name' => 'Doe',
         ]);
 
         User::create([
             'first_name' => 'John',
-            'last_name'  => 'Doe',
+            'last_name' => 'Doe',
         ]);
 
         User::create([
             'first_name' => 'John',
-            'last_name'  => 'Doe',
+            'last_name' => 'Doe',
         ]);
 
         User::create([
             'first_name' => 'John',
-            'last_name'  => 'Doe',
+            'last_name' => 'Doe',
         ]);
 
         User::create([
             'first_name' => 'John',
-            'last_name'  => 'Doe',
+            'last_name' => 'Doe',
         ]);
 
         User::create([
             'first_name' => 'John',
-            'last_name'  => 'Doe',
+            'last_name' => 'Doe',
         ]);
 
         User::create([
             'first_name' => 'John',
-            'last_name'  => 'Doe',
+            'last_name' => 'Doe',
         ]);
 
         User::create([
             'first_name' => 'John',
-            'last_name'  => 'Doe',
+            'last_name' => 'Doe',
         ]);
 
         User::create([
             'first_name' => 'John',
-            'last_name'  => 'Doe',
+            'last_name' => 'Doe',
         ]);
 
         User::create([
             'first_name' => 'John',
-            'last_name'  => 'Doe',
+            'last_name' => 'Doe',
         ]);
 
         User::create([
             'first_name' => 'John',
-            'last_name'  => 'Doe',
+            'last_name' => 'Doe',
         ]);
 
         for ($i = 0; $i < 12; $i++) {
@@ -77,7 +77,7 @@ class SluggableTest extends TestCase
                 ]);
             } else {
                 $this->assertDatabaseHas('users', [
-                    'slug' => 'john-doe-'.$i,
+                    'slug' => 'john-doe-' . $i,
                 ]);
             }
         }
@@ -101,7 +101,7 @@ class SluggableTest extends TestCase
                 ]);
             } else {
                 $this->assertDatabaseHas('users', [
-                    'slug' => 'john-'.$i,
+                    'slug' => 'john-' . $i,
                 ]);
             }
         }
@@ -131,6 +131,23 @@ class SluggableTest extends TestCase
 
         $this->assertDatabaseHas('roles', [
             'role_slug' => 'super_admin_2',
+        ]);
+    }
+
+    public function testSoftDelete()
+    {
+        $role = Role::create([
+            'name' => 'Super Admin',
+        ]);
+
+        $role->delete();
+
+        Role::create([
+            'name' => 'Super Admin',
+        ]);
+
+        $this->assertDatabaseHas('roles', [
+            'role_slug' => 'super_admin_1',
         ]);
     }
 }
