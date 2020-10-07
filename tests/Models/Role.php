@@ -8,7 +8,8 @@ use Sluggable\Traits\Sluggable;
 
 class Role extends Model
 {
-    use Sluggable, SoftDeletes;
+    use Sluggable;
+    use SoftDeletes;
 
     protected $fillable = [
         'name',
