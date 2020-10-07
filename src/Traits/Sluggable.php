@@ -57,8 +57,8 @@ trait Sluggable
 
             $latestSlug = null;
             if ($slugExists) {
-                $query = self::whereRaw(self::slugSaveTo() . " LIKE '$slug%'");
-                if ($usesSoftDelete){
+                $query = self::whereRaw(self::slugSaveTo()." LIKE '$slug%'");
+                if ($usesSoftDelete) {
                     $query->withTrashed();
                 }
                 $latestSlug = $query->latest('id')->value(self::slugSaveTo());
@@ -67,7 +67,7 @@ trait Sluggable
             if ($latestSlug) {
                 $pieces = explode(self::separator(), $latestSlug);
                 $number = intval(end($pieces));
-                $slug .= self::separator() . ($number + 1);
+                $slug .= self::separator().($number + 1);
             }
 
             $model->{self::slugSaveTo()} = $slug;
