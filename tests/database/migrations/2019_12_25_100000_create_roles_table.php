@@ -18,6 +18,7 @@ class CreateRolesTable extends Migration
             $table->string('name');
             $table->string('role_slug')->unique();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

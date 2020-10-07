@@ -24,6 +24,15 @@ trait Sluggable
     public static function bootSluggable()
     {
         self::creating(function ($model) {
+            $traits = class_uses(self::class);
+            $usesSoftDelete = false;
+
+            foreach ($traits as $trait) {
+                if ($trait === 'Illuminate\Database\Eloquent\SoftDeletes') {
+                    $usesSoftDelete = true;
+                }
+            }
+
             if (!count(self::slugFrom())) {
                 return;
             }
@@ -38,17 +47,27 @@ trait Sluggable
 
             $slug = Str::slug($str, self::separator());
 
-            $slugExists = self::where(self::slugSaveTo(), $slug)->exists();
+            $query = self::where(self::slugSaveTo(), $slug);
+
+            if ($usesSoftDelete) {
+                $query->withTrashed();
+            }
+
+            $slugExists = $query->exists();
 
             $latestSlug = null;
             if ($slugExists) {
-                $latestSlug = self::whereRaw(self::slugSaveTo()." LIKE '$slug%'")->latest('id')->value(self::slugSaveTo());
+                $query = self::whereRaw(self::slugSaveTo() . " LIKE '$slug%'");
+                if ($usesSoftDelete){
+                    $query->withTrashed();
+                }
+                $latestSlug = $query->latest('id')->value(self::slugSaveTo());
             }
 
             if ($latestSlug) {
                 $pieces = explode(self::separator(), $latestSlug);
                 $number = intval(end($pieces));
-                $slug .= self::separator().($number + 1);
+                $slug .= self::separator() . ($number + 1);
             }
 
             $model->{self::slugSaveTo()} = $slug;
