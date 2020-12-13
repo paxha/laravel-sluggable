@@ -47,7 +47,7 @@ trait Sluggable
 
             $slug = Str::slug($str, self::separator());
 
-            $query = self::where(self::slugSaveTo(), $slug);
+            $query = self::whereRaw(self::slugSaveTo()." LIKE '$slug%'");
 
             if ($usesSoftDelete) {
                 $query->withTrashed();
